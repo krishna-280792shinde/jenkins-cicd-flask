@@ -53,6 +53,11 @@ print('Flask endpoint tests passed.')
                 '''
             }
         }
+        stage('Deploy to EC2') {
+            steps {
+                sh 'sudo /usr/local/sbin/deploy-flask'
+            }
+        }
     }
 
     post {
