@@ -7,9 +7,13 @@ app = Flask(__name__)
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({
-        "message": "Flask backend is running successfully!"
+        "message": "Flask backend is running successfully!",
+        "application": "Jenkins CI/CD Flask Backend"
     })
 
+@app.route("/health")
+def health():
+    return jsonify({"status": "healthy"}), 200
 
 @app.route("/submit", methods=["POST"])
 def submit_form():
